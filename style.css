@@ -1,0 +1,715 @@
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #ff3366;
+            --light-color: #f8f9fa;
+            --dark-color: #1a1a2e;
+            --success-color: #2ecc71;
+            --gradient-start: #ff9a9e;
+            --gradient-mid: #fad0c4;
+            --gradient-end: #a18cd1;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Animation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(255, 255, 255, 0.05) 50%,
+                    rgba(255, 255, 255, 0.1) 100%);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--light-color);
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            position: relative;
+        }
+
+        /* Hero Section with Parallax Effect */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            height: 500px;
+            perspective: 1000px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transform: scale(1.1);
+            transition: transform 8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+
+        .hero:hover .hero-image {
+            transform: scale(1);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 36, 99, 0.9), transparent);
+            color: white;
+            padding: 40px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.8s forwards;
+        }
+
+        .hero-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animated Gradient Card */
+        .VCE {
+            background: linear-gradient(45deg,
+                    var(--gradient-start),
+                    var(--gradient-mid),
+                    var(--gradient-end));
+            background-size: 300% 300%;
+            animation: GradientBackground 12s ease infinite;
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+            margin: 50px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            opacity: 0;
+            animation:
+                fadeInUp 1s ease-out 1s forwards,
+                GradientBackground 12s ease infinite 2s;
+        }
+
+        @keyframes GradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .VCE::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: pulse 8s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .VCE_Title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .divider {
+            border: 2px solid white;
+            width: 100px;
+            margin: 20px auto;
+            opacity: 0;
+            animation: expandWidth 0.8s ease-out 1.5s forwards;
+        }
+
+        @keyframes expandWidth {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+
+            100% {
+                width: 100px;
+                opacity: 1;
+            }
+        }
+
+        .JTime {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.8s forwards;
+        }
+
+        /* Animated Button */
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s forwards;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color: var(--accent-color);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            border-radius: 2px;
+            animation: underlineGrow 1s ease-out 1s forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        @keyframes underlineGrow {
+            0% {
+                transform: scaleX(0);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        .programs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Animated Program Cards */
+        .program-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .program-card:nth-child(1) {
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .program-card:nth-child(2) {
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+        }
+
+        .program-card:nth-child(3) {
+            animation: fadeInUp 0.8s ease-out 1.2s forwards;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-color), var(--secondary-color));
+            transition: width 0.4s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-card:hover::before {
+            width: 10px;
+        }
+
+        .program-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .program-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .program-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .program-card i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Achievers Section */
+        .achievers-section {
+            margin: 70px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards;
+        }
+
+        .achievers-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .achievers-table:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievers-table th,
+        .achievers-table td {
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .achievers-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .achievers-table tr:nth-child(even) {
+            background-color: rgba(62, 146, 204, 0.05);
+        }
+
+        .achievers-table tr:hover {
+            background-color: rgba(62, 146, 204, 0.1);
+        }
+
+        .achievers-table td {
+            position: relative;
+        }
+
+        .achievers-table td::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating Elements Animation */
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive footer styles */
+        .footer {
+            width: 100%;
+            padding: 20px 0;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            font-size: 2rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ff5252;
+        }
+
+        .footer-underline {
+            border: none;
+            border-top: 2px solid #fff;
+            margin: 20px auto 0 auto;
+            width: 80%;
+        }
+
+        .footer-text {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .VCE {
+                padding: 30px;
+            }
+
+            .program-card {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                height: 350px;
+                margin: 30px 0;
+            }
+
+            .hero-content {
+                padding: 25px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .VCE_Title {
+                font-size: 1.8rem;
+            }
+
+            .programs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .program-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .achievers-table th,
+            .achievers-table td {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
