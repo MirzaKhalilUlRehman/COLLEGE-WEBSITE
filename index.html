@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGC - Informatics Group of College</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="floating">INFORMATICS GROUP OF COLLEGE</h1>
+            <p class="tagline">Proud of Tehsil Samundri</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <img src="WhatsApp Image 2025-06-15 at 11.21.33_7f9ae354.jpg" alt="IGCSB image" class="hero-image">
+            <div class="hero-content">
+                <h2>Quality Education for Brighter Future</h2>
+                <p>تعلیم! بدلے زندگی پھر انتظار اور سوچنا کیوں؟</p>
+            </div>
+        </div>
+
+        <div class="VCE">
+            <h2 class="VCE_Title">ADMISSIONS OPEN FOR 2024-25</h2>
+            <div class="divider"></div>
+            <p class="JTime">Limited seats available. Apply now to secure your future.</p>
+            <button class="btn" type="button" onclick="document.getElementById('Example').innerHTML = Date()">
+                <i class="fas fa-user-graduate"></i> APPLY NOW
+            </button>
+            <p class="JTime" id="Example"></p>
+        </div>
+
+        <div class="programs-section">
+            <h2 class="section-title">PROGRAMS OFFERED</h2>
+            <div class="programs-container">
+                <div class="program-card">
+                    <h3>F.Sc</h3>
+                    <p><i class="fas fa-flask"></i> PRE-ENGINEERING</p>
+                    <p><i class="fas fa-dna"></i> PRE-MEDICAL</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>ICS</h3>
+                    <p><i class="fas fa-atom"></i> PHYSICS</p>
+                    <p><i class="fas fa-chart-line"></i> ECONOMICS</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>F.A</h3>
+                    <p><i class="fas fa-book-open"></i> GENERAL ARTS</p>
+                    <p><i class="fas fa-laptop-code"></i> INFORMATION TECHNOLOGY</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievers-section">
+            <h2 class="section-title">OUR HIGH ACHIEVERS</h2>
+            <table class="achievers-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                </tr>
+                <tr>
+                    <td><b>Syed Izzan Shah</b></td>
+                    <td>539/1200</td>
+                </tr>
+                <tr>
+                    <td><b>Narmeen Malik</b></td>
+                    <td>528</td>
+                </tr>
+                <tr>
+                    <td><b>Muttar Fida</b></td>
+                    <td>494</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="about">
+            INFORMATICS GROUP OF COLLEGE <br> SAMUNDRI PAKISTAN
+        </div>
+        <div class="footer-links">
+            <a href="https://www.tiktok.com/@informaticscollegsmd469" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560237346233" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="igcsamundri@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+        <hr class="footer-underline">
+        <div class="footer-text">
+            &copy; 2025 Your Company. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Add intersection observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const animateOnScroll = function () {
+                const elements = document.querySelectorAll('.program-card, .achievers-section, .section-title');
+
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (elementPosition < screenPosition) {
+                        const animation = element.style.animation;
+                        if (!animation || animation === 'none') {
+                            element.style.animation = 'fadeInUp 1s ease-out forwards';
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Trigger once on load
+        });
+    </script>
+</body>
+
+</html>
